@@ -1,4 +1,4 @@
-# learning-threejs
+# threejs-playground
 
 ## Project setup
 ```
