@@ -8,16 +8,13 @@ import * as THREE from "three"
 
 export default class RotatingCube extends Vue {
   mounted() {
-    this.setup()
+    const canvas = document.getElementById("canvas")
+    if (canvas != null) {
+      this.setup(canvas)
+    }
   }
 
-  private setup() {
-    const canvas = document.getElementById("canvas")
-    if (canvas == null) {
-      console.error("canvas missing")
-      return
-    }
-
+  private setup(canvas: Element) {
     const scene = new THREE.Scene()
 
     const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 1, 10000)
