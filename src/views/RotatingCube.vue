@@ -46,12 +46,12 @@ export default class RotatingCube extends Vue {
 
   @Watch("rotationX")
   onRotationXChanged(value: number) {
-    this.cube.setRotationX(value)
+    this.cube.rotationX = value
   }
 
   @Watch("rotationY")
   onRotationYChanged(value: number) {
-    this.cube.setRotationY(value)
+    this.cube.rotationY = value
   }
 }
 </script>

@@ -4,9 +4,6 @@ export default class Cube {
   width: number
   height: number
 
-  rotationX: number
-  rotationY: number
-
   scene: THREE.Scene
   camera: THREE.Camera
   renderer: THREE.Renderer
@@ -16,9 +13,6 @@ export default class Cube {
   constructor(width: number, height: number) {
     this.width = width
     this.height = height
-
-    this.rotationX = 0.0
-    this.rotationY = 0.0
 
     this.scene = new THREE.Scene()
     this.camera = this.createCamera()
@@ -64,22 +58,20 @@ export default class Cube {
   }
 
   public start() {
-    const update = () => {
-      requestAnimationFrame(update)
-
-      this.box.rotation.x = this.rotationX
-      this.box.rotation.y = this.rotationY
-
-      this.renderer.render(this.scene, this.camera)
-    }
-    update()
+    this.update()
   }
 
-  public setRotationX(x: number) {
-    this.rotationX = x
+  private update() {
+    this.renderer.render(this.scene, this.camera)
   }
 
-  public setRotationY(y: number) {
-    this.rotationY = y
+  set rotationX(x: number) {
+    this.box.rotation.x = x
+    this.update()
+  }
+
+  set rotationY(y: number) {
+    this.box.rotation.y = y
+    this.update()
   }
 }
